@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://baoqsw34sajqw"]
+
+[ext_resource type="Script" path="res://Scripts/map_line.gd" id="1_y4peg"]
+[ext_resource type="Texture2D" uid="uid://ckejkf0r3jisw" path="res://Art/2D/map lines.png" id="2_1c77n"]
+
+[node name="Map Line" type="Sprite2D"]
+texture = ExtResource("2_1c77n")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 8)
+script = ExtResource("1_y4peg")

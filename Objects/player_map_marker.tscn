@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://crb2jnneqaadh"]
+
+[ext_resource type="Texture2D" uid="uid://l8yvkupwlj5l" path="res://Art/2D/player arrow.png" id="1_k583d"]
+
+[node name="Player Map Marker" type="Node2D"]
+z_index = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_k583d")

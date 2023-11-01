@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqoyj3c067oxl"]
+
+[ext_resource type="Script" path="res://Scripts/map_view.gd" id="1_4pwr1"]
+[ext_resource type="PackedScene" uid="uid://bsdb6wgg2dlgy" path="res://Objects/Map/map_view_square.tscn" id="2_rpwt8"]
+[ext_resource type="Texture2D" uid="uid://byysk6x2ca3hp" path="res://Art/2D/scroll.png" id="3_7wfy6"]
+[ext_resource type="PackedScene" uid="uid://crb2jnneqaadh" path="res://Objects/player_map_marker.tscn" id="4_1mq60"]
+
+[node name="MapView" type="Node3D" node_paths=PackedStringArray("viewer", "top_left", "bottom_right", "player_marker", "map_root")]
+script = ExtResource("1_4pwr1")
+viewer = NodePath("Viewer")
+top_left = NodePath("Viewer/Top Left")
+bottom_right = NodePath("Viewer/Bottom Right")
+view_square = ExtResource("2_rpwt8")
+player_marker = NodePath("Viewer/Map Squares/Player Map Marker")
+map_root = NodePath("Viewer/Map Squares")
+
+[node name="Viewer" type="Node2D" parent="."]
+
+[node name="Scroll" type="Sprite2D" parent="Viewer"]
+position = Vector2(960, 540)
+rotation = 1.5708
+texture = ExtResource("3_7wfy6")
+
+[node name="Top Left" type="Marker2D" parent="Viewer"]
+position = Vector2(757, 322)
+
+[node name="Bottom Right" type="Marker2D" parent="Viewer"]
+position = Vector2(1179, 777)
+
+[node name="Map Squares" type="Node2D" parent="Viewer"]
+
+[node name="Player Map Marker" parent="Viewer/Map Squares" instance=ExtResource("4_1mq60")]

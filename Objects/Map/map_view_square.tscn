@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsdb6wgg2dlgy"]
+
+[ext_resource type="Script" path="res://Scripts/map_view_square.gd" id="1_bwhx0"]
+[ext_resource type="PackedScene" uid="uid://baoqsw34sajqw" path="res://Objects/Map/map_line.tscn" id="2_0qfot"]
+
+[node name="Map View Square" type="Node2D" node_paths=PackedStringArray("north_line", "south_line", "east_line", "west_line")]
+script = ExtResource("1_bwhx0")
+north_line = NodePath("North")
+south_line = NodePath("South")
+east_line = NodePath("East")
+west_line = NodePath("West")
+
+[node name="North" parent="." instance=ExtResource("2_0qfot")]
+position = Vector2(16, 2)
+
+[node name="East" parent="." instance=ExtResource("2_0qfot")]
+position = Vector2(30, 16)
+rotation = 1.5708
+
+[node name="West" parent="." instance=ExtResource("2_0qfot")]
+position = Vector2(2, 16)
+rotation = -1.5708
+
+[node name="South" parent="." instance=ExtResource("2_0qfot")]
+position = Vector2(16, 30)
+rotation = -3.14159

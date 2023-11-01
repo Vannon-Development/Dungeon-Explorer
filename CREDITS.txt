@@ -1,0 +1,89 @@
+Title:
+	Hand Painted Stone Wall Texture
+
+Author:
+	Richy Mackro
+
+URL:
+	https://opengameart.org/content/hand-painted-stone-wall-texture
+
+License(s):
+	* OGA-BY 3.0 ( http://static.opengameart.org/OGA-BY-3.0.txt )
+
+Copyright/Attribution Notice:
+	KIIRA
+
+File(s):
+	* Stone Wall.png
+	* Stone Wall_DISP.png
+	* Stone Wall_NRM.png
+	* Stone Wall_OCC.png
+	* Stone Wall_SPEC.png
+
+----------------------------------------
+
+Title:
+	Hand Painted Texture - Dirt
+
+Author:
+	Richy Mackro
+
+URL:
+	https://opengameart.org/content/hand-painted-texture-dirt
+
+License(s):
+	* CC-BY 3.0 ( http://creativecommons.org/licenses/by/3.0/legalcode )
+
+Copyright/Attribution Notice:
+	KIIRA
+
+File(s):
+	* Dirt.png
+	* Dirt_DISP.png
+	* Dirt_NRM.png
+	* Dirt_OCC.png
+	* Dirt_SPEC.png
+
+----------------------------------------
+
+Title:
+	Hand Painted Texture - Floor Tile
+
+Author:
+	Richy Mackro
+
+URL:
+	https://opengameart.org/content/hand-painted-texture-floor-tile
+
+License(s):
+	* CC-BY 3.0 ( http://creativecommons.org/licenses/by/3.0/legalcode )
+
+Copyright/Attribution Notice:
+	KIIRA
+
+File(s):
+	* Tiled Floor Texture.png
+	* Tiled Floor Texture_DISP.png
+	* Tiled Floor Texture_NRM.png
+	* Tiled Floor Texture_OCC.png
+	* Tiled Floor Texture_SPEC.png
+
+----------------------------------------
+
+Title:
+	Burnt Scroll
+
+Author:
+	Endymain
+
+URL:
+	www.MagicMeepleGames.com
+
+License(s):
+	* CC-BY-SA 3.0 ( https://creativecommons.org/licenses/by-sa/3.0/ )
+
+Copyright/Attribution Notice:
+	Endymain
+
+File(s):
+	* scroll.png

@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bt3e6bepkp6vw"]
+
+[ext_resource type="PackedScene" uid="uid://bvv4pnhlk7m7r" path="res://Objects/Level Squares/floor.tscn" id="1_1pl8j"]
+[ext_resource type="Script" path="res://Scripts/map_tile.gd" id="1_hwoa8"]
+[ext_resource type="PackedScene" uid="uid://bikxph4jh21x2" path="res://Objects/Level Squares/ceiling.tscn" id="2_pce06"]
+[ext_resource type="PackedScene" uid="uid://c833isupkx1qj" path="res://Objects/Level Squares/wall.tscn" id="3_mhwln"]
+
+[node name="Map Tile" type="Node3D" node_paths=PackedStringArray("north_wall", "south_wall", "east_wall", "west_wall")]
+script = ExtResource("1_hwoa8")
+north_wall = NodePath("North")
+south_wall = NodePath("South")
+east_wall = NodePath("East")
+west_wall = NodePath("West")
+
+[node name="Floor" parent="." instance=ExtResource("1_1pl8j")]
+
+[node name="Ceiling" parent="." instance=ExtResource("2_pce06")]
+
+[node name="North" parent="." instance=ExtResource("3_mhwln")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+
+[node name="West" parent="." instance=ExtResource("3_mhwln")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.5, 0, 0)
+
+[node name="East" parent="." instance=ExtResource("3_mhwln")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.5, 0, 0)
+
+[node name="South" parent="." instance=ExtResource("3_mhwln")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0.5)

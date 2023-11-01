@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcrdragreod52"]
+
+[ext_resource type="PackedScene" uid="uid://dp22p13fesx7p" path="res://Objects/player.tscn" id="2_0r3hn"]
+[ext_resource type="PackedScene" uid="uid://bvcxq7nnwbnkh" path="res://Objects/map_builder.tscn" id="2_ui4x4"]
+[ext_resource type="PackedScene" uid="uid://cqoyj3c067oxl" path="res://Objects/map_view.tscn" id="3_heqpy"]
+
+[node name="Test Game Level" type="Node3D"]
+
+[node name="Player" parent="." node_paths=PackedStringArray("map") instance=ExtResource("2_0r3hn")]
+map = NodePath("../Map Builder")
+
+[node name="Map Builder" parent="." instance=ExtResource("2_ui4x4")]
+
+[node name="MapView" parent="." node_paths=PackedStringArray("level") instance=ExtResource("3_heqpy")]
+level = NodePath("../Map Builder")
+
+[connection signal="player_move" from="Player" to="MapView" method="_on_player_move"]
