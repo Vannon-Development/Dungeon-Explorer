@@ -1,0 +1,204 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhjfkh02qjcs3"]
+
+[ext_resource type="Script" path="res://addons/Inventory Editor/equipment_setup.gd" id="1_txgie"]
+
+[node name="Equipment Setup" type="ScrollContainer" node_paths=PackedStringArray("name_entry", "type_entry", "min_strength_display", "min_strength_slider", "min_dexterity_display", "min_dexterity_slider", "min_intelligence_display", "min_intelligence_slider", "min_faith_display", "min_faith_slider", "weapon_slot_entry", "equipment_group", "weapon_group")]
+custom_minimum_size = Vector2(600, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -75.0
+offset_right = -1395.0
+offset_bottom = -280.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+script = ExtResource("1_txgie")
+name_entry = NodePath("Root Container/Main Group/Name Line/Name Entry")
+type_entry = NodePath("Root Container/Main Group/Type Line/Type Entry")
+min_strength_display = NodePath("Root Container/Equipment Group/Min Strength Line/Min Strength Display")
+min_strength_slider = NodePath("Root Container/Equipment Group/Min Strength Line/Min Strength Slider")
+min_dexterity_display = NodePath("Root Container/Equipment Group/Min Dexterity Line/Min Dexterity Display")
+min_dexterity_slider = NodePath("Root Container/Equipment Group/Min Dexterity Line/Min Dexterity Slider")
+min_intelligence_display = NodePath("Root Container/Equipment Group/Min Intelligence Line/Min Intelligence Display")
+min_intelligence_slider = NodePath("Root Container/Equipment Group/Min Intelligence Line/Min Intelligence Slider")
+min_faith_display = NodePath("Root Container/Equipment Group/Min Faith Line/Min Faith Display")
+min_faith_slider = NodePath("Root Container/Equipment Group/Min Faith Line/Min Faith Slider")
+weapon_slot_entry = NodePath("Root Container/Weapon Group/Weapon Slot Line/Weapon Sot Entry")
+equipment_group = NodePath("Root Container/Equipment Group")
+weapon_group = NodePath("Root Container/Weapon Group")
+
+[node name="Root Container" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Main Group" type="VBoxContainer" parent="Root Container"]
+layout_mode = 2
+
+[node name="Name Line" type="HBoxContainer" parent="Root Container/Main Group"]
+layout_mode = 2
+
+[node name="Name Prompt" type="Label" parent="Root Container/Main Group/Name Line"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Name"
+
+[node name="Name Entry" type="LineEdit" parent="Root Container/Main Group/Name Line"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Item Name"
+
+[node name="Type Line" type="HBoxContainer" parent="Root Container/Main Group"]
+layout_mode = 2
+
+[node name="Type Propt" type="Label" parent="Root Container/Main Group/Type Line"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Item Type"
+
+[node name="Type Entry" type="OptionButton" parent="Root Container/Main Group/Type Line"]
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 5
+selected = 0
+popup/item_0/text = "Weapon"
+popup/item_0/id = 0
+popup/item_1/text = "Armor"
+popup/item_1/id = 1
+popup/item_2/text = "Totem"
+popup/item_2/id = 2
+popup/item_3/text = "Ammunition"
+popup/item_3/id = 3
+popup/item_4/text = "Shield"
+popup/item_4/id = 4
+
+[node name="Equipment Group" type="VBoxContainer" parent="Root Container"]
+layout_mode = 2
+
+[node name="Min Strength Line" type="HBoxContainer" parent="Root Container/Equipment Group"]
+layout_mode = 2
+
+[node name="Min Strength Prompt" type="Label" parent="Root Container/Equipment Group/Min Strength Line"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Min Strength"
+
+[node name="Min Strength Display" type="Label" parent="Root Container/Equipment Group/Min Strength Line"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+text = "0"
+
+[node name="Min Strength Slider" type="HSlider" parent="Root Container/Equipment Group/Min Strength Line"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.8
+max_value = 20.0
+
+[node name="Min Dexterity Line" type="HBoxContainer" parent="Root Container/Equipment Group"]
+layout_mode = 2
+
+[node name="Min Dexterity Prompt" type="Label" parent="Root Container/Equipment Group/Min Dexterity Line"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Min Dexterity"
+
+[node name="Min Dexterity Display" type="Label" parent="Root Container/Equipment Group/Min Dexterity Line"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+text = "0"
+
+[node name="Min Dexterity Slider" type="HSlider" parent="Root Container/Equipment Group/Min Dexterity Line"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.8
+max_value = 20.0
+
+[node name="Min Intelligence Line" type="HBoxContainer" parent="Root Container/Equipment Group"]
+layout_mode = 2
+
+[node name="Min Intelligence Prompt" type="Label" parent="Root Container/Equipment Group/Min Intelligence Line"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Min Intelligence"
+
+[node name="Min Intelligence Display" type="Label" parent="Root Container/Equipment Group/Min Intelligence Line"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+text = "0"
+
+[node name="Min Intelligence Slider" type="HSlider" parent="Root Container/Equipment Group/Min Intelligence Line"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.8
+max_value = 20.0
+
+[node name="Min Faith Line" type="HBoxContainer" parent="Root Container/Equipment Group"]
+layout_mode = 2
+
+[node name="Min Faith Prompt" type="Label" parent="Root Container/Equipment Group/Min Faith Line"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Min Faith"
+
+[node name="Min Faith Display" type="Label" parent="Root Container/Equipment Group/Min Faith Line"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+text = "0"
+
+[node name="Min Faith Slider" type="HSlider" parent="Root Container/Equipment Group/Min Faith Line"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.8
+max_value = 20.0
+
+[node name="Weapon Group" type="VBoxContainer" parent="Root Container"]
+layout_mode = 2
+
+[node name="Weapon Slot Line" type="HBoxContainer" parent="Root Container/Weapon Group"]
+layout_mode = 2
+
+[node name="Weapon Slot Prompt" type="Label" parent="Root Container/Weapon Group/Weapon Slot Line"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Slot"
+
+[node name="Weapon Sot Entry" type="OptionButton" parent="Root Container/Weapon Group/Weapon Slot Line"]
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 3
+selected = 0
+popup/item_0/text = "Primary"
+popup/item_0/id = 0
+popup/item_1/text = "One-Hand"
+popup/item_1/id = 1
+popup/item_2/text = "Two-Hand"
+popup/item_2/id = 2
+
+[node name="Buttons" type="HFlowContainer" parent="Root Container"]
+layout_mode = 2
+alignment = 1
+
+[node name="Save Button" type="Button" parent="Root Container/Buttons"]
+layout_mode = 2
+text = "Save"
+
+[node name="Revert Button" type="Button" parent="Root Container/Buttons"]
+layout_mode = 2
+text = "Revert"
+
+[connection signal="item_selected" from="Root Container/Main Group/Type Line/Type Entry" to="." method="_on_type_changed"]
+[connection signal="value_changed" from="Root Container/Equipment Group/Min Strength Line/Min Strength Slider" to="." method="_on_min_strength_changed"]
+[connection signal="value_changed" from="Root Container/Equipment Group/Min Dexterity Line/Min Dexterity Slider" to="." method="_on_min_dexterity_changed"]
+[connection signal="value_changed" from="Root Container/Equipment Group/Min Intelligence Line/Min Intelligence Slider" to="." method="_on_min_intelligence_changed"]
+[connection signal="value_changed" from="Root Container/Equipment Group/Min Faith Line/Min Faith Slider" to="." method="_on_min_faith_changed"]
+[connection signal="pressed" from="Root Container/Buttons/Save Button" to="." method="_on_save_press"]
+[connection signal="pressed" from="Root Container/Buttons/Revert Button" to="." method="_on_revert_press"]

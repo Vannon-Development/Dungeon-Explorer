@@ -1,4 +1,4 @@
-class_name MapBuilder
+class_name LevelFloor
 extends DirectionNode
 
 @export var base_tile: PackedScene
@@ -21,7 +21,8 @@ var map: Array[int] = [
 	0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0,
 	0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0
 ]
-var tiles: Array[MapTile]
+
+var _tiles: Array[MapTile]
 
 func start_position() -> Vector3:
 	for index in width * height:
@@ -35,26 +36,29 @@ func can_move(from: Vector3, dir: Direction) -> bool:
 	var map_target: Vector2i = Vector2i(int(target.x), int(target.z))
 	return _exists(map_target) and _tile(map_target) != TileType.empty
 
+func tile_at(pos: Vector2i) -> MapTile:
+	return _tiles[pos.x + pos.y * width]
+
 func _ready():
 	if map.size() != width * height:
 		print("Invalid Map: %i x %i = %i" % [width, height, map.size()])
 		return
 
-	tiles = []
-	tiles.resize(width * height)
-	tiles.fill(null)
+	_tiles = []
+	_tiles.resize(width * height)
+	_tiles.fill(null)
 	for y in height:
 		for x in width:
 			var tile_type: TileType = _tile(Vector2i(x, y))
 			if tile_type != TileType.empty:
 				var tile := base_tile.instantiate() as MapTile
 				tile.position = Vector3(x, 0, y)
-				if _exists(Vector2i(x, y-1)) and _tile(Vector2i(x, y-1)) != 0: tile.set_open(Direction.north)
-				if _exists(Vector2i(x, y+1)) and _tile(Vector2i(x, y+1)) != 0: tile.set_open(Direction.south)
-				if _exists(Vector2i(x+1, y)) and _tile(Vector2i(x+1, y)) != 0: tile.set_open(Direction.east)
-				if _exists(Vector2i(x-1, y)) and _tile(Vector2i(x-1, y)) != 0: tile.set_open(Direction.west)
+				if _exists(Vector2i(x, y-1)) and _tile(Vector2i(x, y-1)) != 0: tile.set_open(Direction.NORTH)
+				if _exists(Vector2i(x, y+1)) and _tile(Vector2i(x, y+1)) != 0: tile.set_open(Direction.SOUTH)
+				if _exists(Vector2i(x+1, y)) and _tile(Vector2i(x+1, y)) != 0: tile.set_open(Direction.EAST)
+				if _exists(Vector2i(x-1, y)) and _tile(Vector2i(x-1, y)) != 0: tile.set_open(Direction.WEST)
 				add_child(tile)
-				tiles[x + y * width] = tile
+				_tiles[x + y * width] = tile
 
 func _tile(pos: Vector2i) -> TileType:
 	return map[pos.y * width + pos.x] as TileType

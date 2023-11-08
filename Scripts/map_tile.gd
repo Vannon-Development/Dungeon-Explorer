@@ -16,7 +16,7 @@ func is_open(dir: Direction) -> bool:
 	return !_wall_at(dir).visible
 
 func _wall_at(dir: Direction) -> Node3D:
-	if dir == Direction.north: return north_wall
-	if dir == Direction.south: return south_wall
-	if dir == Direction.east: return east_wall
+	if dir == Direction.NORTH: return north_wall
+	if dir == Direction.SOUTH: return south_wall
+	if dir == Direction.EAST: return east_wall
 	return west_wall

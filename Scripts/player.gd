@@ -3,12 +3,12 @@ extends DirectionNode
 
 signal player_move(pos: Vector3, dir: Direction)
 
-@export var map: MapBuilder
+@export var map: LevelFloor
 
 var facing: Direction
 
 func _ready():
-	facing = Direction.north
+	facing = Direction.NORTH
 	position = map.start_position()
 
 var _frame1: bool = true

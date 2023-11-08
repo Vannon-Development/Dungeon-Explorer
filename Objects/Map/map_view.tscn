@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/map_view.gd" id="1_4pwr1"]
 [ext_resource type="PackedScene" uid="uid://bsdb6wgg2dlgy" path="res://Objects/Map/map_view_square.tscn" id="2_rpwt8"]
 [ext_resource type="Texture2D" uid="uid://byysk6x2ca3hp" path="res://Art/2D/scroll.png" id="3_7wfy6"]
-[ext_resource type="PackedScene" uid="uid://crb2jnneqaadh" path="res://Objects/player_map_marker.tscn" id="4_1mq60"]
+[ext_resource type="PackedScene" uid="uid://crb2jnneqaadh" path="res://Objects/Map/player_map_marker.tscn" id="4_1mq60"]
 
 [node name="MapView" type="Node3D" node_paths=PackedStringArray("viewer", "top_left", "bottom_right", "player_marker", "map_root")]
 script = ExtResource("1_4pwr1")

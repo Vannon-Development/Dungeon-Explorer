@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://gfkjbtkq626e"]
+
+[ext_resource type="Script" path="res://addons/Inventory Editor/inventory_list.gd" id="1_p52ef"]
+[ext_resource type="JSON" uid="uid://dyp0obi37hcuj" path="res://Data/items.tres" id="2_p6uo6"]
+
+[node name="Inventory List" type="VBoxContainer" node_paths=PackedStringArray("list", "category_menu", "item_menu")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p52ef")
+list = NodePath("List")
+file = ExtResource("2_p6uo6")
+category_menu = NodePath("Category Menu")
+item_menu = NodePath("Item Menu")
+
+[node name="List" type="Tree" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+hide_root = true
+
+[node name="Category Menu" type="PopupMenu" parent="."]
+size = Vector2i(119, 100)
+item_count = 1
+item_0/text = "Create Item"
+item_0/id = 0
+
+[node name="Item Menu" type="PopupMenu" parent="."]
+size = Vector2i(119, 100)
+item_count = 2
+item_0/text = "Create Item"
+item_0/id = 0
+item_1/text = "Delete Item"
+item_1/id = 1
+
+[connection signal="item_selected" from="List" to="." method="_on_list_item_selected"]
+[connection signal="index_pressed" from="Category Menu" to="." method="_on_category_menu_item"]
+[connection signal="index_pressed" from="Item Menu" to="." method="_on_item_menu_item"]

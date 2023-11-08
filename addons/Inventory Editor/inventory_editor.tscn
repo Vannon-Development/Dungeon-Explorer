@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://jn1lxmod8bye"]
+
+[ext_resource type="PackedScene" uid="uid://gfkjbtkq626e" path="res://addons/Inventory Editor/inventory_list.tscn" id="1_016ac"]
+[ext_resource type="Script" path="res://addons/Inventory Editor/inventory_editor.gd" id="1_d2c45"]
+[ext_resource type="PackedScene" uid="uid://bhjfkh02qjcs3" path="res://addons/Inventory Editor/equipment_setup.tscn" id="2_ix1ua"]
+
+[node name="Inventory Editor" type="HSplitContainer" node_paths=PackedStringArray("list_screen", "detail_screen")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+split_offset = 800
+script = ExtResource("1_d2c45")
+list_screen = NodePath("Inventory List")
+detail_screen = NodePath("Equipment Setup")
+
+[node name="Inventory List" parent="." instance=ExtResource("1_016ac")]
+layout_mode = 2
+
+[node name="Equipment Setup" parent="." instance=ExtResource("2_ix1ua")]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[connection signal="item_selected" from="Inventory List" to="." method="_on_item_selected"]
+[connection signal="item_changed" from="Equipment Setup" to="." method="_on_item_changed"]

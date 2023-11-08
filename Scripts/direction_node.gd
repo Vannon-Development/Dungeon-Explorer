@@ -1,7 +1,7 @@
 class_name DirectionNode
 extends Node3D
 
-enum Direction { north, east, south, west}
+enum Direction { NORTH, EAST, SOUTH, WEST }
 
 var _directions: Array[Vector3] = [Vector3(0, 0, -1), Vector3(1, 0, 0), Vector3(0, 0, 1), Vector3(-1, 0, 0)]
 var _angles: Array[float] = [0, -PI / 2, PI, PI / 2]

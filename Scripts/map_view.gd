@@ -1,7 +1,7 @@
 class_name MapView
 extends DirectionNode
 
-@export var level: MapBuilder
+@export var level: LevelFloor
 @export var viewer: Node2D
 @export var top_left: Marker2D
 @export var bottom_right: Marker2D
@@ -52,7 +52,7 @@ func _add_square(pos: Vector2i):
 	var square := view_square.instantiate() as MapViewSquare
 	map_root.add_child(square)
 	_squares[index] = square
-	var tile := level.tiles[index]
+	var tile := level.tile_at(pos)
 	for dir in 4:
 		square.set_open(dir) if tile.is_open(dir) else square.set_closed(dir)
 	square.position = _anchor + Vector2(pos.x * _square_size, pos.y * _square_size)

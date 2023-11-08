@@ -13,7 +13,7 @@ func set_closed(dir: DirectionNode.Direction):
 	_get_wall(dir).visible = true
 
 func _get_wall(dir: DirectionNode.Direction) -> Node2D:
-	if dir == DirectionNode.Direction.north: return north_line
-	if dir == DirectionNode.Direction.south: return south_line
-	if dir == DirectionNode.Direction.east: return east_line
+	if dir == DirectionNode.Direction.NORTH: return north_line
+	if dir == DirectionNode.Direction.SOUTH: return south_line
+	if dir == DirectionNode.Direction.EAST: return east_line
 	return west_line

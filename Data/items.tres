@@ -1,0 +1,33 @@
+[gd_resource type="JSON" format=3 uid="uid://dyp0obi37hcuj"]
+
+[resource]
+data = [{
+"id": 0.0,
+"name": "Bronze Shield",
+"type": 4
+}, {
+"id": 1.0,
+"min_dexterity": 2.0,
+"min_strength": 2.0,
+"name": "Steel Dagger",
+"type": 0,
+"weapon_slot": 1
+}, {
+"id": 2,
+"name": "Bronze Armor",
+"type": 1
+}, {
+"id": 3,
+"name": "Bronze Dagger",
+"type": 0,
+"weapon_slot": 1
+}, {
+"id": 4,
+"min_intelligence": 3.0,
+"name": "Magic Scroll",
+"type": 2
+}, {
+"id": 5,
+"name": "Arrow",
+"type": 3
+}]
