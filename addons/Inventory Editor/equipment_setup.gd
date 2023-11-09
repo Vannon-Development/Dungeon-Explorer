@@ -17,10 +17,16 @@ signal item_changed(item: Dictionary)
 @export var min_faith_slider: Slider
 
 @export var weapon_slot_entry: OptionButton
+@export var weapon_damage_entry: LineEdit
+@export var weapon_speed_entry: LineEdit
+
+@export var armor_slot_entry: OptionButton
+@export var armor_reduction_entry: LineEdit
 
 @export_category("Group List")
 @export var equipment_group: Control
 @export var weapon_group: Control
+@export var armor_group: Control
 
 var _orig_item: Dictionary
 
@@ -45,6 +51,10 @@ func set_item(item: Dictionary):
 	min_intelligence_slider.value = item["min_intelligence"] if item.has("min_intelligence") else 0
 	min_faith_slider.value = item["min_faith"] if item.has("min_faith") else 0
 	weapon_slot_entry.selected = item["weapon_slot"] if item.has("weapon_slot") else 0
+	weapon_damage_entry.text = str(item["weapon_damage"]) if item.has("weapon_damage") else str(1.0)
+	weapon_speed_entry.text = str(item["weapon_speed"]) if item.has("weapon_speed") else str(1.0)
+	armor_slot_entry.selected = item["armor_slot"] if item.has("armor_slot") else 0
+	armor_reduction_entry.text = str(item["armor_reduction"]) if item.has("armor_reduction") else str(1.0)
 
 func _on_type_changed(index):
 	_show_groups_for(index)
@@ -52,6 +62,7 @@ func _on_type_changed(index):
 func _show_groups_for(type: int):
 	equipment_group.visible = type == 0 or type == 1 or type == 2 or type == 4
 	weapon_group.visible = type == 0
+	armor_group.visible = type == 1
 
 func _on_min_strength_changed(value):
 	min_strength_display.text = str(value)
@@ -76,6 +87,11 @@ func _submit_item():
 		if min_faith_slider.value != 0: item["min_faith"] = min_faith_slider.value
 	if weapon_group.visible:
 		item["weapon_slot"] = weapon_slot_entry.selected
+		if float(weapon_damage_entry.text) != 1.0: item["weapon_damage"] = float(weapon_damage_entry.text)
+		if float(weapon_speed_entry.text) != 1.0: item["weapon_speed"] = float(weapon_speed_entry.text)
+	if armor_group.visible:
+		item["armor_slot"] = armor_slot_entry.selected
+		if float(armor_reduction_entry.text) != 1.0: item["armor_reduction"] = float(armor_reduction_entry.text)
 	item_changed.emit(item)
 
 func _on_save_press():

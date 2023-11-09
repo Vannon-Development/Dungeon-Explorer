@@ -1,12 +1,53 @@
-[gd_scene load_steps=2 format=3 uid="uid://dp22p13fesx7p"]
+[gd_scene load_steps=6 format=3 uid="uid://dp22p13fesx7p"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_belt1"]
+[ext_resource type="PackedScene" uid="uid://b0f2a04ooak8f" path="res://Objects/Items/steel_dagger.tscn" id="2_hvbp3"]
 
-[node name="Player" type="Node3D"]
+[sub_resource type="Animation" id="Animation_shxxp"]
+resource_name = "dagger_attack"
+length = 0.5
+step = 0.05
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dagger Holder")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.249521, 0.274027, -0.255509, 0.25, 1, 0.127193, 0.299228, -0.508596, 0.5, 1, 0.249521, 0.274027, -0.255509)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dagger Holder")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.112492, -0.700204, 0.135554, 0.691871, 0.15, 1, -0.310757, -0.471717, 0.473677, 0.67568, 0.25, 1, -0.310757, -0.471717, 0.473677, 0.67568, 0.5, 1, -0.112492, -0.700204, 0.135554, 0.691871)
+
+[sub_resource type="Animation" id="Animation_tudaq"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dgqyn"]
+_data = {
+"RESET": SubResource("Animation_tudaq"),
+"dagger_attack": SubResource("Animation_shxxp")
+}
+
+[node name="Player" type="Node3D" node_paths=PackedStringArray("animations")]
 script = ExtResource("1_belt1")
+animations = NodePath("AnimationPlayer")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="Dagger Holder" type="Node3D" parent="."]
+transform = Transform3D(-0.0173205, -0.030038, -0.999399, 0.345106, 0.937941, -0.0341718, 0.938404, -0.345491, -0.00587931, 0.249521, 0.274027, -0.255509)
+
+[node name="Steel Dagger" parent="Dagger Holder" instance=ExtResource("2_hvbp3")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dgqyn")
+}

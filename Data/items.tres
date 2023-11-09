@@ -11,16 +11,21 @@ data = [{
 "min_strength": 2.0,
 "name": "Steel Dagger",
 "type": 0,
-"weapon_slot": 1
+"weapon_damage": 1.5,
+"weapon_slot": 1,
+"weapon_speed": 0.5
 }, {
+"armor_reduction": 2.0,
+"armor_slot": 0,
 "id": 2,
-"name": "Bronze Armor",
+"name": "Leather Shirt",
 "type": 1
 }, {
 "id": 3,
 "name": "Bronze Dagger",
 "type": 0,
-"weapon_slot": 1
+"weapon_slot": 1,
+"weapon_speed": 0.5
 }, {
 "id": 4,
 "min_intelligence": 3.0,
@@ -30,4 +35,26 @@ data = [{
 "id": 5,
 "name": "Arrow",
 "type": 3
+}, {
+"armor_slot": 1,
+"id": 6,
+"name": "Leather Pants",
+"type": 1
+}, {
+"armor_reduction": 0.5,
+"armor_slot": 2,
+"id": 7,
+"name": "Leather Shoes",
+"type": 1
+}, {
+"armor_reduction": 0.5,
+"armor_slot": 4,
+"id": 8,
+"name": "Leather Gloves",
+"type": 1
+}, {
+"armor_slot": 3,
+"id": 9,
+"name": "Leather Hat",
+"type": 1
 }]

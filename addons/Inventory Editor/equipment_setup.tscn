@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://addons/Inventory Editor/equipment_setup.gd" id="1_txgie"]
 
-[node name="Equipment Setup" type="ScrollContainer" node_paths=PackedStringArray("name_entry", "type_entry", "min_strength_display", "min_strength_slider", "min_dexterity_display", "min_dexterity_slider", "min_intelligence_display", "min_intelligence_slider", "min_faith_display", "min_faith_slider", "weapon_slot_entry", "equipment_group", "weapon_group")]
+[node name="Equipment Setup" type="ScrollContainer" node_paths=PackedStringArray("name_entry", "type_entry", "min_strength_display", "min_strength_slider", "min_dexterity_display", "min_dexterity_slider", "min_intelligence_display", "min_intelligence_slider", "min_faith_display", "min_faith_slider", "weapon_slot_entry", "weapon_damage_entry", "weapon_speed_entry", "armor_slot_entry", "armor_reduction_entry", "equipment_group", "weapon_group", "armor_group")]
 custom_minimum_size = Vector2(600, 0)
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,8 +26,13 @@ min_intelligence_slider = NodePath("Root Container/Equipment Group/Min Intellige
 min_faith_display = NodePath("Root Container/Equipment Group/Min Faith Line/Min Faith Display")
 min_faith_slider = NodePath("Root Container/Equipment Group/Min Faith Line/Min Faith Slider")
 weapon_slot_entry = NodePath("Root Container/Weapon Group/Weapon Slot Line/Weapon Sot Entry")
+weapon_damage_entry = NodePath("Root Container/Weapon Group/Weapon Damage Line/Weapon Damage Entry")
+weapon_speed_entry = NodePath("Root Container/Weapon Group/Weapon Speed Line/Weapon Speed Entry")
+armor_slot_entry = NodePath("Root Container/Armor Group/Armor Slot Line/Armor Slot Entry")
+armor_reduction_entry = NodePath("Root Container/Armor Group/Armor Reduction Line/Armor Reduction Entry")
 equipment_group = NodePath("Root Container/Equipment Group")
 weapon_group = NodePath("Root Container/Weapon Group")
+armor_group = NodePath("Root Container/Armor Group")
 
 [node name="Root Container" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -60,7 +65,7 @@ text = "Item Type"
 [node name="Type Entry" type="OptionButton" parent="Root Container/Main Group/Type Line"]
 layout_mode = 2
 size_flags_horizontal = 3
-item_count = 5
+item_count = 6
 selected = 0
 popup/item_0/text = "Weapon"
 popup/item_0/id = 0
@@ -72,6 +77,8 @@ popup/item_3/text = "Ammunition"
 popup/item_3/id = 3
 popup/item_4/text = "Shield"
 popup/item_4/id = 4
+popup/item_5/text = "Key"
+popup/item_5/id = 5
 
 [node name="Equipment Group" type="VBoxContainer" parent="Root Container"]
 layout_mode = 2
@@ -182,6 +189,74 @@ popup/item_1/text = "One-Hand"
 popup/item_1/id = 1
 popup/item_2/text = "Two-Hand"
 popup/item_2/id = 2
+
+[node name="Weapon Damage Line" type="HBoxContainer" parent="Root Container/Weapon Group"]
+layout_mode = 2
+
+[node name="Weapon Damage Prompt" type="Label" parent="Root Container/Weapon Group/Weapon Damage Line"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Damage Multiplier"
+
+[node name="Weapon Damage Entry" type="LineEdit" parent="Root Container/Weapon Group/Weapon Damage Line"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Damage"
+
+[node name="Weapon Speed Line" type="HBoxContainer" parent="Root Container/Weapon Group"]
+layout_mode = 2
+
+[node name="Weapon Speed Prompt" type="Label" parent="Root Container/Weapon Group/Weapon Speed Line"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Attack Speed"
+
+[node name="Weapon Speed Entry" type="LineEdit" parent="Root Container/Weapon Group/Weapon Speed Line"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Attack Time"
+
+[node name="Armor Group" type="VBoxContainer" parent="Root Container"]
+layout_mode = 2
+
+[node name="Armor Slot Line" type="HBoxContainer" parent="Root Container/Armor Group"]
+layout_mode = 2
+
+[node name="Armor Slot Prompt" type="Label" parent="Root Container/Armor Group/Armor Slot Line"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Slot"
+
+[node name="Armor Slot Entry" type="OptionButton" parent="Root Container/Armor Group/Armor Slot Line"]
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 6
+selected = 0
+popup/item_0/text = "Torso"
+popup/item_0/id = 0
+popup/item_1/text = "Legs"
+popup/item_1/id = 1
+popup/item_2/text = "Feet"
+popup/item_2/id = 2
+popup/item_3/text = "Head"
+popup/item_3/id = 3
+popup/item_4/text = "Hands"
+popup/item_4/id = 4
+popup/item_5/text = "Ring"
+popup/item_5/id = 5
+
+[node name="Armor Reduction Line" type="HBoxContainer" parent="Root Container/Armor Group"]
+layout_mode = 2
+
+[node name="Armor Reduction Prompt" type="Label" parent="Root Container/Armor Group/Armor Reduction Line"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Damage Reduction"
+
+[node name="Armor Reduction Entry" type="LineEdit" parent="Root Container/Armor Group/Armor Reduction Line"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Reduction"
 
 [node name="Buttons" type="HFlowContainer" parent="Root Container"]
 layout_mode = 2

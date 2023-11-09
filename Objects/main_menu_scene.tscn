@@ -1,0 +1,73 @@
+[gd_scene load_steps=7 format=3 uid="uid://ciaawi55cdsc3"]
+
+[ext_resource type="Script" path="res://Scripts/Menu/menu_label.gd" id="1_3wv3s"]
+[ext_resource type="Script" path="res://Scripts/Menu/main_menu.gd" id="1_njaoi"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_usxew"]
+font_size = 150
+
+[sub_resource type="LabelSettings" id="LabelSettings_1n08e"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_vwe45"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_14qmf"]
+font_size = 64
+
+[node name="Main Menu" type="Node2D" node_paths=PackedStringArray("menu_items")]
+script = ExtResource("1_njaoi")
+menu_items = [NodePath("Menu Items/Create Option"), NodePath("Menu Items/Start Option"), NodePath("Menu Items/Continue Option")]
+
+[node name="Title Container" type="HFlowContainer" parent="."]
+custom_minimum_size = Vector2(1920, 0)
+offset_top = 212.0
+offset_right = 1920.0
+offset_bottom = 420.0
+alignment = 1
+
+[node name="Title" type="Label" parent="Title Container"]
+layout_mode = 2
+text = "Dungeon Explorer"
+label_settings = SubResource("LabelSettings_usxew")
+horizontal_alignment = 1
+
+[node name="Menu Items" type="GridContainer" parent="."]
+offset_left = 811.0
+offset_top = 508.0
+offset_right = 1475.0
+offset_bottom = 789.0
+
+[node name="Create Option" type="Label" parent="Menu Items"]
+layout_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+text = "Create Character"
+label_settings = SubResource("LabelSettings_1n08e")
+script = ExtResource("1_3wv3s")
+normal_color = Color(1, 1, 1, 1)
+selected_color = Color(0.74902, 0.501961, 0, 1)
+
+[node name="Start Option" type="Label" parent="Menu Items"]
+layout_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+text = "Start A New Dungeon"
+label_settings = SubResource("LabelSettings_vwe45")
+script = ExtResource("1_3wv3s")
+normal_color = Color(1, 1, 1, 1)
+selected_color = Color(0.74902, 0.501961, 0, 1)
+
+[node name="Continue Option" type="Label" parent="Menu Items"]
+layout_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+text = "Continue A Dungeon"
+label_settings = SubResource("LabelSettings_14qmf")
+script = ExtResource("1_3wv3s")
+normal_color = Color(1, 1, 1, 1)
+selected_color = Color(0.74902, 0.501961, 0, 1)
+
+[connection signal="mouse_entered" from="Menu Items/Create Option" to="." method="_select_create"]
+[connection signal="mouse_entered" from="Menu Items/Start Option" to="." method="_select_start"]
+[connection signal="mouse_entered" from="Menu Items/Continue Option" to="." method="_select_continue"]

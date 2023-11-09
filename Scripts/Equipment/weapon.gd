@@ -1,3 +1,7 @@
 class_name Weapon extends Equipment
 
-var damage: Vector2i
+enum WeaponSlot { Primary, OneHand, TwoHand }
+
+var damage: float
+var time: float
+var slot: WeaponSlot

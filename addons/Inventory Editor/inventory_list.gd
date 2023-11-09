@@ -48,11 +48,12 @@ func update_item(item: Dictionary):
 	_build_list()
 
 func _input(event):
-	if event is InputEventMouseButton:
+	if event is InputEventMouseButton and list.get_global_rect().has_point(get_global_mouse_position()) and list.is_visible_in_tree():
 		var evt := event as InputEventMouseButton
 		if evt.button_index == MOUSE_BUTTON_RIGHT and evt.is_pressed():
 			var pos = list.get_local_mouse_position()
 			var sel_item := list.get_item_at_position(pos)
+			if sel_item == null: return
 			if sel_item.has_meta("id"):
 				var item_id: int = sel_item.get_meta("id")
 				_show_item_menu(item_id)

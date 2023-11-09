@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=3 uid="uid://b0f2a04ooak8f"]
+
+[ext_resource type="ArrayMesh" uid="uid://crix317nok0pq" path="res://Art/Items/Steel Dagger/dagger.obj" id="1_8544j"]
+[ext_resource type="Texture2D" uid="uid://3bhbeoltwars" path="res://Art/Items/Steel Dagger/steeldagger_512_AlbedoTransparency.png" id="2_bna53"]
+[ext_resource type="Texture2D" uid="uid://dcxoe1n850kl0" path="res://Art/Items/Steel Dagger/steeldagger_512_MetallicSmoothness.png" id="3_yytiy"]
+[ext_resource type="Texture2D" uid="uid://bl8c1t7655i6b" path="res://Art/Items/Steel Dagger/steeldagger_512_Normal.png" id="4_02drx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_upct3"]
+albedo_texture = ExtResource("2_bna53")
+metallic = 1.0
+metallic_texture = ExtResource("3_yytiy")
+normal_enabled = true
+normal_texture = ExtResource("4_02drx")
+
+[node name="Steel Dagger" type="Node3D"]
+
+[node name="Dagger" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_8544j")
+surface_material_override/0 = SubResource("StandardMaterial3D_upct3")
